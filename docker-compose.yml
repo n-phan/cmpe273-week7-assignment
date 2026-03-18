@@ -15,9 +15,19 @@ services:
       INSTANCE_ID: "service1"
       SERVICE_PORT: "8000"
       REGISTRY_URL: "http://registry:8001"
-      SERVICE_URL: "http://service1:8000"
+      # Register the *sidecar* URL (mesh forwards to sidecars).
+      SERVICE_URL: "http://service1-sidecar:8000"
     depends_on:
       - registry
+
+  service1-sidecar:
+    build: .
+    command: ["python", "service_sidecar.py"]
+    environment:
+      WORKER_URL: "http://service1:8000"
+      SIDECAR_PORT: "8000"
+    depends_on:
+      - service1
 
   service2:
     build: .
@@ -27,9 +37,31 @@ services:
       INSTANCE_ID: "service2"
       SERVICE_PORT: "8000"
       REGISTRY_URL: "http://registry:8001"
-      SERVICE_URL: "http://service2:8000"
+      # Register the *sidecar* URL (mesh forwards to sidecars).
+      SERVICE_URL: "http://service2-sidecar:8000"
     depends_on:
       - registry
+
+  service2-sidecar:
+    build: .
+    command: ["python", "service_sidecar.py"]
+    environment:
+      WORKER_URL: "http://service2:8000"
+      SIDECAR_PORT: "8000"
+    depends_on:
+      - service2
+
+  mesh-proxy:
+    build: .
+    command: ["python", "mesh_proxy.py"]
+    environment:
+      SERVICE_NAME: "demo-service"
+      REGISTRY_URL: "http://registry:8001"
+      MESH_PORT: "9000"
+    depends_on:
+      - registry
+      - service1-sidecar
+      - service2-sidecar
 
   client:
     build: .
@@ -37,9 +69,11 @@ services:
     environment:
       SERVICE_NAME: "demo-service"
       REGISTRY_URL: "http://registry:8001"
+      MESH_PROXY_URL: "http://mesh-proxy:9000"
     depends_on:
       - registry
-      - service1
-      - service2
+      - service1-sidecar
+      - service2-sidecar
+      - mesh-proxy
     restart: "no"
 
