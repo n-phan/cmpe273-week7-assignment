@@ -35,3 +35,5 @@ Discovered instance URLs: ['http://service1:8000', 'http://service2:8000']
 Chosen random instance: http://service2:8000
 Worker response: {'service_name': 'demo-service', 'instance_id': 'service2', 'random_result': 483921, 'server_time': 1700000000.123}
 ```
+<img width="3164" height="2074" alt="image" src="https://github.com/user-attachments/assets/22dc5294-b7ca-4993-9544-81a6c96052a8" />
+
