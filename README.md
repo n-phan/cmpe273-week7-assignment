@@ -1,4 +1,4 @@
-# CMPE273 Week 7 - Microservice Discovery (REST + Docker)
+# CMPE273 Week 7 - Microservice Discovery (Optional Mesh Discovery)
 
 ## Overview
 This repository demonstrates service discovery with REST calls and Docker Compose.
