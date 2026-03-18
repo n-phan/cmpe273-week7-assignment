@@ -1,0 +1,45 @@
+services:
+  registry:
+    build: .
+    command: ["python", "registry.py"]
+    environment:
+      REGISTRY_PORT: "8001"
+    ports:
+      - "8001:8001"
+
+  service1:
+    build: .
+    command: ["python", "service.py"]
+    environment:
+      SERVICE_NAME: "demo-service"
+      INSTANCE_ID: "service1"
+      SERVICE_PORT: "8000"
+      REGISTRY_URL: "http://registry:8001"
+      SERVICE_URL: "http://service1:8000"
+    depends_on:
+      - registry
+
+  service2:
+    build: .
+    command: ["python", "service.py"]
+    environment:
+      SERVICE_NAME: "demo-service"
+      INSTANCE_ID: "service2"
+      SERVICE_PORT: "8000"
+      REGISTRY_URL: "http://registry:8001"
+      SERVICE_URL: "http://service2:8000"
+    depends_on:
+      - registry
+
+  client:
+    build: .
+    command: ["python", "client.py"]
+    environment:
+      SERVICE_NAME: "demo-service"
+      REGISTRY_URL: "http://registry:8001"
+    depends_on:
+      - registry
+      - service1
+      - service2
+    restart: "no"
+
