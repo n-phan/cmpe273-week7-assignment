@@ -26,7 +26,7 @@ In another terminal:
 docker compose run --rm client
 ```
 
-#### Sample Output
+## Sample Output
 
 Because the client picks a random instance, the `Chosen random instance` and `Worker response.instance_id` may be `service1` or `service2`.
 
@@ -37,3 +37,6 @@ Worker response: {'service_name': 'demo-service', 'instance_id': 'service2', 'ra
 ```
 <img width="3164" height="2074" alt="image" src="https://github.com/user-attachments/assets/22dc5294-b7ca-4993-9544-81a6c96052a8" />
 
+## Architecture Diagram
+
+<img width="1492" height="422" alt="image" src="https://github.com/user-attachments/assets/a253eaa3-d29a-4446-b5d1-6e41448b9c45" />
