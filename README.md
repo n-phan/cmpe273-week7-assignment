@@ -32,6 +32,7 @@ Discovered instance URLs: ['http://service1-sidecar:8000', 'http://service2-side
 Chosen random instance: http://service2-sidecar:8000
 Worker response: {'service_name': 'demo-service', 'instance_id': 'service2', 'random_result': 483921, 'server_time': 1700000000.123}
 ```
+![Uploading image.png…]()
 
 ## Optional: Service Mesh Discovery (Istio / Linkerd)
 Service meshes typically discover and route traffic using:
