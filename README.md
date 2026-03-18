@@ -1,4 +1,4 @@
-# CMPE273 Week 7 - Microservice Discovery (REST + Docker)
+# CMPE273 Week 7 - Microservice Discovery
 
 This is a simple demonstration of service discovery:
 - A `registry` service stores instance URLs in memory.
