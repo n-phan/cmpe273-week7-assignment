@@ -39,4 +39,4 @@ Worker response: {'service_name': 'demo-service', 'instance_id': 'service2', 'ra
 
 ## Architecture Diagram
 
-<img width="1492" height="422" alt="image" src="https://github.com/user-attachments/assets/a253eaa3-d29a-4446-b5d1-6e41448b9c45" />
+<img width="1660" height="558" alt="image" src="https://github.com/user-attachments/assets/f18f8ecf-aae8-4c29-8aa0-3d76f8be07e4" />
