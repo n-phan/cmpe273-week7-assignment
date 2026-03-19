@@ -35,7 +35,7 @@ Worker response: {'service_name': 'demo-service', 'instance_id': 'service2', 'ra
 <img width="3164" height="2074" alt="image" src="https://github.com/user-attachments/assets/1226bcc5-db21-45a2-b6e0-8bd0c1d8b4f4" />
 
 ## Architecture Diagram
-<img width="1660" height="286" alt="image" src="https://github.com/user-attachments/assets/a34fd81d-58f6-41f7-a1b9-73b339178e9d" />
+<img width="1660" height="286" alt="image" src="https://github.com/user-attachments/assets/dff71766-4294-4bb8-91b0-b27406fc5851" />
 
 ## Optional: Service Mesh Discovery (Istio / Linkerd)
 Service meshes typically discover and route traffic using:
